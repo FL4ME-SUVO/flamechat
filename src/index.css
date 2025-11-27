@@ -1,109 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Minimal aesthetic design system. Colors use HSL. */
 
 @layer base {
   :root {
-    --background: 240 10% 98%;
-    --foreground: 240 10% 10%;
+    /* Light theme (minimal, desaturated) */
+    --background: 210 20% 98%;      /* very light gray-blue */
+    --foreground: 215 14% 12%;      /* dark bluish-gray */
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 10%;
+    --card-foreground: 215 14% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 10%;
+    --popover-foreground: 215 14% 12%;
 
-    --primary: 238 76% 60%;
+    --primary: 212 90% 50%;        /* calm blue */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 240 10% 10%;
+    --secondary: 210 16% 96%;
+    --secondary-foreground: 215 14% 12%;
 
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 214 20% 46%;
 
-    --accent: 217 91% 60%;
+    --accent: 210 90% 60%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 350 80% 58%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 238 76% 60%;
+    --border: 212 20% 90%;
+    --input: 212 20% 95%;
+    --ring: 212 90% 50%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
 
-    --chat-bubble-sent: 238 76% 60%;
-    --chat-bubble-received: 0 0% 100%;
-    --chat-bg-gradient-start: 240 10% 98%;
-    --chat-bg-gradient-end: 235 50% 97%;
+    --chat-bubble-sent: 212 90% 50%;
+    --chat-bubble-received: 215 14% 98%;
+    --chat-bg-gradient-start: 210 20% 98%;
+    --chat-bg-gradient-end: 210 15% 96%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 210 16% 98%;
+    --sidebar-foreground: 215 14% 12%;
+    --sidebar-primary: 212 90% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 18% 95%;
+    --sidebar-accent-foreground: 215 14% 12%;
+    --sidebar-border: 212 20% 92%;
+    --sidebar-ring: 212 90% 50%;
   }
 
   .dark {
-    --background: 240 10% 10%;
-    --foreground: 240 5% 96%;
+    /* Dark theme (neutral, low-saturation) */
+    --background: 210 15% 9%;
+    --foreground: 210 14% 96%;
 
-    --card: 240 10% 13%;
-    --card-foreground: 240 5% 96%;
+    --card: 210 12% 12%;
+    --card-foreground: 210 14% 96%;
 
-    --popover: 240 10% 13%;
-    --popover-foreground: 240 5% 96%;
+    --popover: 210 12% 12%;
+    --popover-foreground: 210 14% 96%;
 
-    --primary: 238 76% 60%;
+    --primary: 212 85% 58%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 4% 16%;
-    --secondary-foreground: 240 5% 96%;
+    --secondary: 210 12% 14%;
+    --secondary-foreground: 210 14% 96%;
 
-    --muted: 240 4% 16%;
-    --muted-foreground: 240 5% 64%;
+    --muted: 210 12% 14%;
+    --muted-foreground: 210 14% 72%;
 
-    --accent: 217 91% 60%;
+    --accent: 212 90% 50%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 63% 31%;
+    --destructive: 350 80% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 4% 16%;
-    --input: 240 4% 16%;
-    --ring: 238 76% 60%;
+    --border: 210 12% 16%;
+    --input: 210 12% 14%;
+    --ring: 212 90% 50%;
 
-    --chat-bubble-sent: 238 76% 60%;
-    --chat-bubble-received: 240 4% 16%;
-    --chat-bg-gradient-start: 240 10% 10%;
-    --chat-bg-gradient-end: 235 20% 12%;
+    --radius: 0.75rem;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --chat-bubble-sent: 212 85% 58%;
+    --chat-bubble-received: 210 12% 14%;
+    --chat-bg-gradient-start: 210 15% 9%;
+    --chat-bg-gradient-end: 215 12% 12%;
+
+    --sidebar-background: 210 12% 10%;
+    --sidebar-foreground: 210 12% 96%;
+    --sidebar-primary: 212 85% 46%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 210 10% 12%;
+    --sidebar-accent-foreground: 210 12% 96%;
+    --sidebar-border: 210 10% 12%;
+    --sidebar-ring: 212 90% 50%;
   }
 }
 
 @layer base {
+  /* Smooth theme transition */
+  html {
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     @apply bg-background text-foreground;
   }
+
+  /* Utility tokens mapped to Tailwind-friendly classes */
+  .bg-background { background-color: hsl(var(--background)); }
+  .text-foreground { color: hsl(var(--foreground)); }
 }

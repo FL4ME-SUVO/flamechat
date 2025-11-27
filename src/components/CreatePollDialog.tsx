@@ -17,9 +17,10 @@ import { useToast } from "@/hooks/use-toast";
 interface CreatePollDialogProps {
   username: string;
   onPollCreated: () => void;
+  roomId?: string | null;
 }
 
-export const CreatePollDialog = ({ username, onPollCreated }: CreatePollDialogProps) => {
+export const CreatePollDialog = ({ username, onPollCreated, roomId }: CreatePollDialogProps) => {
   const [open, setOpen] = useState(false);
   const [question, setQuestion] = useState("");
   const [options, setOptions] = useState(["", ""]);
@@ -95,6 +96,7 @@ export const CreatePollDialog = ({ username, onPollCreated }: CreatePollDialogPr
       content: question.trim(),
       message_type: "poll",
       poll_id: pollData.id,
+      room_id: roomId ?? null,
     });
 
     if (messageError) {

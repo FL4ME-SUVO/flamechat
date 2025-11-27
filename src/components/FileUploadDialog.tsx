@@ -18,9 +18,10 @@ interface FileUploadDialogProps {
   username: string;
   type: "image" | "document";
   onFileUploaded: () => void;
+  roomId?: string | null;
 }
 
-export const FileUploadDialog = ({ username, type, onFileUploaded }: FileUploadDialogProps) => {
+export const FileUploadDialog = ({ username, type, onFileUploaded, roomId }: FileUploadDialogProps) => {
   const [open, setOpen] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
@@ -65,6 +66,7 @@ export const FileUploadDialog = ({ username, type, onFileUploaded }: FileUploadD
       message_type: type,
       file_url: urlData.publicUrl,
       file_name: file.name,
+      room_id: roomId ?? null,
     });
 
     if (messageError) {

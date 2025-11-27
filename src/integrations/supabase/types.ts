@@ -14,6 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
+      rooms: {
+        Row: {
+          id: string
+          name: string
+          code: string
+          created_by: string
+          private: boolean
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          code?: string
+          created_by: string
+          private?: boolean
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          code?: string
+          created_by?: string
+          private?: boolean
+          created_at?: string
+        }
+        Relationships: []
+      }
       messages: {
         Row: {
           content: string
@@ -24,6 +51,7 @@ export type Database = {
           message_type: Database["public"]["Enums"]["message_type"]
           poll_id: string | null
           username: string
+          room_id: string | null
         }
         Insert: {
           content: string
@@ -34,6 +62,7 @@ export type Database = {
           message_type?: Database["public"]["Enums"]["message_type"]
           poll_id?: string | null
           username: string
+          room_id?: string | null
         }
         Update: {
           content?: string
@@ -44,6 +73,7 @@ export type Database = {
           message_type?: Database["public"]["Enums"]["message_type"]
           poll_id?: string | null
           username?: string
+          room_id?: string | null
         }
         Relationships: []
       }
@@ -135,7 +165,7 @@ export type Tables<
   }
     ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
         DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
-    : never = never,
+    : never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
